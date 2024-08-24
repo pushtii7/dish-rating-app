@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import { fetchDishes } from '../utils/api';
 import { getStoredDishes, setStoredDishes, getStoredRankings, setStoredRankings } from '../utils/localStorage';
 
@@ -14,11 +14,14 @@ export const DishProvider = ({ children }) => {
     if (storedDishes) {
       setDishes(storedDishes);
     } else {
-      fetchDishes().then((data) => {
-        const dishesWithPoints = data.map(dish => ({ ...dish, points: 0 }));
+      fetchDishes()
+        .then((data) => {
+            const dishesWithPoints = data.map(dish => ({ ...dish, points: 0 }))
         setDishes(dishesWithPoints);
         setStoredDishes(dishesWithPoints);
-      });
+        })
+        .catch((err) => {
+        console.log('error while fetching data',err)});
     }
     setRankings(storedRankings);
   }, []);

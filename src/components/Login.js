@@ -43,12 +43,7 @@ const Login = () => {
                             id="username"
                             placeholder="Username"
                             {...register("username", {
-                                required: "Username is required",
-                                minLength: {
-                                    value: 4,
-                                    message:
-                                        "Username must be at least 4 characters long",
-                                },
+                                required: "Username is required"
                             })}
                         />
                         {errors.username && (
@@ -68,12 +63,7 @@ const Login = () => {
                             id="password"
                             placeholder="Password"
                             {...register("password", {
-                                required: "Password is required",
-                                minLength: {
-                                    value: 6,
-                                    message:
-                                        "Password must be at least 6 characters long",
-                                },
+                                required: "Password is required"
                             })}
                         />
                         {errors.password && (
@@ -82,10 +72,11 @@ const Login = () => {
                             </span>
                         )}
                     </div>
-
+                    <div className="btn-container">
                     <button type="submit" className="btn btn-primary">
                         Login
                     </button>
+                    </div>
                 </form>
             </div>
         </div>

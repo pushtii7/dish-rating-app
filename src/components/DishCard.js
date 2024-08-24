@@ -3,7 +3,7 @@ import React from "react";
 const DishCard = ({ dish, rank, onRank }) => {
     return (
         <div className="card">
-            <img src={dish.image} alt={dish.dishName} loading="lazy" />
+            <img src={`${dish.image}?${dish.id}`} alt={dish.dishName} loading="lazy" />
             <div className="content">
                 <h3 className="title">{dish.dishName}</h3>
                 <p className="desc">{dish.description}</p>

@@ -13,6 +13,7 @@ import Navigation from "./components/Navigation";
 import RankDishes from "./components/RankDishes";
 import TopRankedDishes from "./components/TopRankedDishes";
 import AdminPanel from "./components/AdminPanel";
+import './App.css'
 
 const App = () => {
     return (

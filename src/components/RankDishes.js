@@ -69,25 +69,30 @@ const RankDishes = () => {
     };
 
     const renderPagination = () => {
-        const pageNumbers = [];
-        for (let i = 1; i <= Math.ceil(dishes.length / dishesPerPage); i++) {
-            pageNumbers.push(i);
-        }
+        const totalPages = Math.ceil(dishes.length / dishesPerPage);
+    
         return (
             <div className="pagination">
-                {pageNumbers.map((number) => (
-                    <button
-                        key={number}
-                        onClick={() => handlePageChange(number)}
-                        className={currentPage === number ? "active" : ""}
-                    >
-                        {number}
-                    </button>
-                ))}
+                <span>
+                    Page {currentPage} of {totalPages}
+                </span>
+                <div className="pagination-buttons">
+                    {Array.from({ length: totalPages }, (_, index) => index + 1).map(
+                        (number) => (
+                            <button
+                                key={number}
+                                onClick={() => handlePageChange(number)}
+                                className={currentPage === number ? "active" : ""}
+                            >
+                                {number}
+                            </button>
+                        )
+                    )}
+                </div>
             </div>
         );
     };
-
+    
     return (
         <div>
             <h2>Rank Dishes</h2>
